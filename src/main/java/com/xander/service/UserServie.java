@@ -1,6 +1,6 @@
 package com.xander.service;
 
-import com.xander.pojo.User;
+import com.xander.entity.User;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.xander.pojo;
+package com.xander.entity;
 
 import org.springframework.stereotype.Component;
 

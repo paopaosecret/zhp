@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xander.mapper.UserMapper">
-    <select id="getUser" resultType="com.xander.pojo.User">
+    <select id="getUser" resultType="com.xander.entity.User">
         select * from t_user
     </select>
     <delete id="deleteUser" parameterType="Integer">
         delete from t_user where id =#{id}
     </delete>
-    <insert id="addUser" parameterType="com.xander.pojo.User">
+    <insert id="addUser" parameterType="com.xander.entity.User">
         insert into t_user(id,name,password)values(#{id},#{name},#{password})
     </insert>
 </mapper>

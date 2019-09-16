@@ -1,6 +1,6 @@
 package com.xander.mapper;
 
-import com.xander.pojo.User;
+import com.xander.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

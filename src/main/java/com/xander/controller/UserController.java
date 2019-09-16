@@ -1,7 +1,7 @@
 package com.xander.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.xander.pojo.User;
+import com.xander.entity.User;
 import com.xander.service.UserServie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
