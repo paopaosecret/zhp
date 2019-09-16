@@ -1,4 +1,4 @@
-package com.xander.lock;
+package com.xander.threadtest.lock;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
