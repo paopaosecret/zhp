@@ -15,7 +15,4 @@ public interface UserServie {
     public void deleteUser(int id)throws Exception;
     //新增用户
     public void addUser(User user)throws Exception;
-
-    //delRedis通过Key
-    public void delRedisByKey(String key)throws Exception;
 }

@@ -48,9 +48,4 @@ public class UserServiceImpl implements UserServie{
     public void addUser(User user) throws Exception {
         userMapper.addUser(user);
     }
-
-    @Override
-    public void delRedisByKey(String key) throws Exception {
-        RedisUtil.getJedis().del(key);
-    }
 }

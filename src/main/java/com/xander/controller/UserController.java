@@ -39,7 +39,7 @@ public class UserController {
         return "this is JsonData";
     }
 
-    @ResponseBody  // //如果使用此注解：返回的数据不匹配模板，不使用则匹配模板
+    @ResponseBody
     @RequestMapping("/list")
     public List<User> list() throws Exception {
         return userService.getUser();
@@ -61,12 +61,4 @@ public class UserController {
         userService.addUser(user);
         return JSON.toJSONString(user);
     }
-
-    @ResponseBody
-    @RequestMapping("/clearRedis")
-    public String clearRedis(@PathVariable String key) throws Exception {
-        userService.delRedisByKey(key);
-        return "从Redis中删除Key成功";
-    }
-
 }
