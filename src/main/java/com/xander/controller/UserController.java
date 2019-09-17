@@ -14,45 +14,48 @@ import java.util.List;
 
 /**
  * Created by zhaobing04 on 2019/9/16.
+ * @RequestMapping 注解添加路径
  */
 @Controller
-@RequestMapping("/user")    //给Controller指定 路径
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserServie userService;
 
-    @Autowired
-    private User user;
-
-    @ResponseBody     //如果使用此注解：返回的数据不匹配模板，不使用则匹配模板
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(){
-        return "this is JsonData";
-    }
-
+    /**
+     * Controller使用@Controller 注解， 默认返回模板页面 如：{@link UserController#hello()}
+     * 当方法加了@ResponseBody 这个注解  则返回字符串 如：{@link UserController#index()}
+     * @return
+     */
     @RequestMapping("/hello")
     public String hello(){
         return "hello";
     }
 
-    //显示用户
+    @ResponseBody
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index(){
+        return "this is JsonData";
+    }
+
     @ResponseBody  // //如果使用此注解：返回的数据不匹配模板，不使用则匹配模板
     @RequestMapping("/list")
     public List<User> list() throws Exception {
         return userService.getUser();
     }
-    //删除用户
+
     @ResponseBody
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable int id) throws Exception {
         userService.deleteUser(id);
         return "你已经删掉了id为"+id+"的用户";
     }
-    //增加用户
+
     @ResponseBody
     @RequestMapping("/addUser")
     public String addUser() throws Exception {
+        User user = new User();
         user.setPassword("123456");
         user.setName("zhangsan");
         userService.addUser(user);

@@ -17,5 +17,5 @@ public interface UserMapper {
     void deleteUser(int id)throws Exception;
 
     //新增用户
-    void addUser(User user)throws Exception;
+    long addUser(User user)throws Exception;
 }
