@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserServie{
     @Autowired
     private UserMapper userMapper;
 
-
     private static final String REDIS_KEY_USER_LIST = "redis_key_user_list";
 
     @Override
@@ -48,5 +47,10 @@ public class UserServiceImpl implements UserServie{
     @Override
     public void addUser(User user) throws Exception {
         userMapper.addUser(user);
+    }
+
+    @Override
+    public void delRedisByKey(String key) throws Exception {
+        RedisUtil.getJedis().del(key);
     }
 }

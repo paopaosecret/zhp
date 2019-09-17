@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("/delete")
     public String delete(@PathVariable int id) throws Exception {
         userService.deleteUser(id);
         return "你已经删掉了id为"+id+"的用户";
@@ -62,5 +62,11 @@ public class UserController {
         return JSON.toJSONString(user);
     }
 
+    @ResponseBody
+    @RequestMapping("/clearRedis")
+    public String clearRedis(@PathVariable String key) throws Exception {
+        userService.delRedisByKey(key);
+        return "从Redis中删除Key成功";
+    }
 
 }

@@ -9,7 +9,7 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public class RedisUtil {
     //服务器IP地址
-    private static String HOST = "192.168.1.6";
+    private static String HOST = "10.252.164.230";
 
     //端口
     private static int PORT = 6379;
