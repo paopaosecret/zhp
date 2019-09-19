@@ -6,7 +6,7 @@ import static com.xander.threadtest.lock.STATUS.T2;
 /**
  * Created by Administrator on 2019/9/16.
  */
-public class CasTest {
+public class CASTest {
     static volatile STATUS T = T1;
 
     public static void main(String args[]){

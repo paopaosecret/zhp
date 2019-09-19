@@ -17,15 +17,7 @@ public class JavaTest {
 
     public static final Object object = new Object();
     public static void main(String args[]){
-        JavaTest javaTest = new JavaTest();
-        javaTest = null;
-        System.gc();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-//        testJSON();
+        testLong();
     }
 
     public static void testJSON(){
@@ -46,5 +38,11 @@ public class JavaTest {
 
         ArrayList<SymboltemBean> list = (ArrayList<SymboltemBean>) JSON.parseArray(jsnoStr, SymboltemBean.class);
         System.out.println(JSON.toJSONString(list));
+    }
+
+    public static void testLong(){
+        long timestamp = 1559038439563L;
+        long id = (timestamp<<8 + 254);
+        System.out.println(id);
     }
 }

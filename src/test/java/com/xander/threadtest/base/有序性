@@ -1,0 +1,52 @@
+有序性
+    底层为了提高cpu效率，所做的优化
+
+    一条汇编指令的执行可分为如下操作:
+    ·取址                   IF
+    ·译码或取寄存器数       ID
+    ·执行或有效地址计算     EX
+    ·存储器访问             MEM
+    ·写会                   WB
+
+    *所以，CPU执行使用流水线的形式
+    *A = B + C的处理
+    LW R1,B      IF ID EX MEM MB
+    LW R2,C         IF ID EX  MEM WB
+    ADD Ra,Rb,Rc       IF ID  X   EX MEM WB                 此处会延迟  之后的指令都会延迟，延迟的原因是因为R2还没有准备好
+    SW A,Ra               IF  X   ID EX  MEM WB
+
+    A = B + C;  D = E - F 的执行：会有四次延迟
+1    LW R1,B      IF ID EX MEM MB
+2    LW R2,C         IF ID EX  MEM WB
+3    ADD Ra,Rb,Rc       IF ID  X   EX MEM WB                 此处会延迟  之后的指令都会延迟，延迟的原因是因为R2还没有准备好
+4    SW A,Ra               IF  X   ID EX  MEM WB
+
+5    LW R1,E                   IF  ID EX  MEM MB
+6    LW R2,F                       IF ID  EX  MEM WB
+7    ADD Rd,Re,Rf                     IF  ID  X   EX MEM WB                 此处会延迟  之后的指令都会延迟，延迟的原因是因为R2还没有准备好
+8    SW D,Rd                              IF  X   ID EX  MEM WB
+
+    *将5,6  行换到 3,4 行之前，就会避免这种延迟，是cpu更高效
+    1    LW R1,B      IF ID EX MEM MB
+    2    LW R2,C         IF ID EX  MEM WB
+    5    LW R1,E            IF ID  EX  MEM MB
+    6    LW R2,F               IF  ID  EX  MEM WB
+    3    ADD Ra,Rb,Rc              IF  ID  EX MEM WB
+    4    SW A,Ra                       IF  ID EX  MEM WB
+    7    ADD Rd,Re,Rf                      IF  ID  EX MEM WB
+    8    SW D,Rd                               IF  ID EX  MEM WB
+
+    *Java中避免指令重排的规则
+    ·程序顺序原则：一个线程内，保证语义的串行性
+    ·volatile规则：volatile变量的写，先发生于读，保证变量的可见性
+    ·锁规则：解锁发生在加锁之前
+    ·传递性：A先于B,B先于C,则A先于C
+    ·线程的start()方法先于它的每个动作
+    ·线程的所有操作先于线程的终结（Thread.join()）
+    ·线程的中断先于被中断线程的代码
+    ·对象的构造函数执行、结束先于finalize()方法
+
+    例如程序的顺序原则，需要保证语义的串行性
+    如：a = 1；
+        b = a + 1;
+    由于第二条语句依赖第一条语句，所以不允许交换其顺序。
