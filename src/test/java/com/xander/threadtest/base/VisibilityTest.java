@@ -1,6 +1,8 @@
 package com.xander.threadtest.base;
 
 /**
+ * 在多核cpu架构下，CPU访问缓存，缓存的一致性问题导致了可见性问题（硬件级别）
+ * 工作内存与主内存数据一致性问题   导致了可见性问题（JMM级别）volatile、synchronized、final都可以解决可见性问题
  * Created by zhaobing04 on 2019/9/18.
  * 可见性测试
  */

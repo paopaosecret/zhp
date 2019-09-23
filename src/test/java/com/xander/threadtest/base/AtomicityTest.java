@@ -1,6 +1,16 @@
 package com.xander.threadtest.base;
 
 /**
+ * 参考
+ * https://www.cnblogs.com/barrywxx/p/10135068.html
+ * https://www.jianshu.com/p/8420ade6ff76
+ *
+ * 在多核cpu架构下，decl指令(递减指令，相当于i--，它分为三个过程:读->改->写，
+ * 这个指令涉及到两次内存操作，那么在这种情况下i的结果是无法预测的。这就是原子性问题 （解决：总线索，缓存锁）
+ *
+ * JMM(a++)等语句,非原子性操作 （解决：Lock，synchronized
+ * Java中提供了两个高级指令 monitorenter和 monitorexit，也就是对应的synchronized同步锁来保证原子性）
+ *
  * Created by zhaobing04 on 2019/9/18.
  * 原子性测试
  *

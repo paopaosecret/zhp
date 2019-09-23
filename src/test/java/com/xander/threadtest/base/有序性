@@ -10,8 +10,8 @@
 
     *所以，CPU执行使用流水线的形式
     *A = B + C的处理
-    LW R1,B      IF ID EX MEM MB
-    LW R2,C         IF ID EX  MEM WB
+    LW Ra,B      IF ID EX MEM MB
+    LW Rb,C         IF ID EX  MEM WB
     ADD Ra,Rb,Rc       IF ID  X   EX MEM WB                 此处会延迟  之后的指令都会延迟，延迟的原因是因为R2还没有准备好
     SW A,Ra               IF  X   ID EX  MEM WB
 
@@ -50,3 +50,6 @@
     如：a = 1；
         b = a + 1;
     由于第二条语句依赖第一条语句，所以不允许交换其顺序。
+
+
+解决：synchronized和volatile可以保证多线程之间操作的有序性，volatile会禁止指令重排序
