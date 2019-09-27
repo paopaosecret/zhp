@@ -2,8 +2,9 @@ package com.xander.threadtest.base;
 
 /**
  * Created by zhaobing04 on 2019/9/19.
+ * Thread.stop()方法：停止当前线程，并释放线程持有对象的锁
  */
-public class StopThreadTest {
+public class StopTest {
     public static User user = new User();
     public static class User{
         private int id;
@@ -48,7 +49,7 @@ public class StopThreadTest {
                     }
                     user.setName(String.valueOf(v));
                 }
-                Thread.yield();
+                yield();
             }
         }
     }
@@ -61,7 +62,7 @@ public class StopThreadTest {
                     if(user.getId() != Integer.parseInt(user.getName())){
                         System.out.println(user.toString());
                     }
-                    Thread.yield();
+                    yield();
                 }
                 yield();
             }

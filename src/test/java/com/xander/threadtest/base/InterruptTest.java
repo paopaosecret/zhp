@@ -4,7 +4,7 @@ package com.xander.threadtest.base;
  * Created by zhaobing04 on 2019/9/19.
  */
 public class InterruptTest {
-    public static StopThreadTest.User user = new StopThreadTest.User();
+    public static StopTest.User user = new StopTest.User();
     public static class User{
         private int id;
         private String name;
@@ -73,10 +73,10 @@ public class InterruptTest {
     }
 
     public static void main(String[] args) {
-        StopThreadTest.ReadUserThread read = new StopThreadTest.ReadUserThread();
+        StopTest.ReadUserThread read = new StopTest.ReadUserThread();
         read.start();
         while(true){
-            Thread change = new StopThreadTest.ChangeUserThread();
+            Thread change = new StopTest.ChangeUserThread();
             change.start();
             try {
                 Thread.sleep(150);
