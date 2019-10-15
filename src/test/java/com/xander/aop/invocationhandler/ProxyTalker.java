@@ -1,4 +1,4 @@
-package com.xander.aop;
+package com.xander.aop.invocationhandler;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package com.xander.asm.adapter;
+package com.xander.aop.asm.adapter;
 
 import com.sun.xml.internal.ws.org.objectweb.asm.ClassAdapter;
 import com.sun.xml.internal.ws.org.objectweb.asm.ClassVisitor;

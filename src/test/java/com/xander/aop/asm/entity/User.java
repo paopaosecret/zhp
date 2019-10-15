@@ -1,6 +1,6 @@
-package com.xander.asm.entity;
+package com.xander.aop.asm.entity;
 
-import com.xander.asm.annotation.Mark;
+import com.xander.aop.asm.annotation.Mark;
 
 import java.io.Serializable;
 
