@@ -1,6 +1,6 @@
-package com.xander.designpattern.abstractfactory.model.impl;
+package com.xander.designpattern.createtype.factory.factorymethod.model.impl;
 
-import com.xander.designpattern.abstractfactory.model.Sender;
+import com.xander.designpattern.createtype.factory.factorymethod.model.Sender;
 
 /**
  * Created by bing.zhao on 2016/11/30.

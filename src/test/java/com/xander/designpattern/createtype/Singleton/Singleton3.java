@@ -1,4 +1,4 @@
-package com.xander.designpattern.Singleton;
+package com.xander.designpattern.createtype.Singleton;
 
 /**
  * Created by zhaobing04 on 2019/9/30.

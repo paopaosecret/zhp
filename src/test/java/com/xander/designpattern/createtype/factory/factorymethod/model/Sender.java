@@ -1,4 +1,4 @@
-package com.xander.designpattern.abstractfactory.model;
+package com.xander.designpattern.createtype.factory.factorymethod.model;
 
 /**
  * Created by bing.zhao on 2016/11/30.
