@@ -5,6 +5,7 @@ package com.xander.designpattern.strcturetype.decorator;
  */
 
 public class Clothes extends Decorator {
+
     public Clothes(Show base){
         super(base);
     }

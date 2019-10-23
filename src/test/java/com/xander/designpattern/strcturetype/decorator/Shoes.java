@@ -6,7 +6,7 @@ package com.xander.designpattern.strcturetype.decorator;
 
 public class Shoes extends Decorator {
 
-    public Shoes(Show show) {
+    public Shoes(Person show) {
         super(show);
     }
 
