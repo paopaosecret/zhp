@@ -1,4 +1,4 @@
-package com.xander.suanfa;
+package com.xander.algorithm;
 
 /**
  * Created by Administrator on 2018/2/26.
