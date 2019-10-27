@@ -29,8 +29,10 @@ public class CyclicBarrierDemo {
 
                     try {
                         int time = new Random().nextInt(5000);
-                        TimeUnit.MILLISECONDS.sleep(time);
+                        System.out.println("thread "+Thread.currentThread().getName()+" 准备去集合");
+                        barrier.await();
                         System.out.println("thread "+Thread.currentThread().getName()+" 到达集合点");
+                        TimeUnit.MILLISECONDS.sleep(time);
                         barrier.await();    //到达集合点, 数量加1
                         System.out.println("thread "+Thread.currentThread().getName()+" 通过集合点继续往后执行");
 
