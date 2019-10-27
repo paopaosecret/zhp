@@ -1,6 +1,7 @@
 package com.xander.jvm;
 
-import com.xander.asm.entity.User;
+
+import com.xander.entity.User;
 
 /**
  * Created by Administrator on 2019/9/21.
