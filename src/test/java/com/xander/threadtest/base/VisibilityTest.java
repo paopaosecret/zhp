@@ -3,6 +3,8 @@ package com.xander.threadtest.base;
 /**
  * Created by zhaobing04 on 2019/9/18.
  * 可见性测试
+ *
+ * MESI缓存一致性协议 （总线嗅探机制）
  */
 public class VisibilityTest {
 
@@ -31,6 +33,23 @@ public class VisibilityTest {
             stop = true;
             System.out.println(Thread.currentThread().getName() + " thread end");
         },"t2").start();
+
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new Thread(()->{
+            while(stop){
+                System.out.println(Thread.currentThread().getName() + " stop = " + stop);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        },"t3").start();
     }
 
 }

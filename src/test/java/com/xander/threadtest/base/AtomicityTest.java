@@ -7,7 +7,7 @@ package com.xander.threadtest.base;
  */
 public class AtomicityTest {
 
-    private int i;
+    private volatile int i;  //volatile 保证了可见性，有序性，但不保证原子性
 
     /**
      * i++由于此操作非原子性
