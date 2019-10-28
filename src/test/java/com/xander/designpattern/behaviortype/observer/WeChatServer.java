@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Created by zhaobing04 on 2018/4/26.
+ *
+ * 真正的被观察者对象
  */
 
 public class WeChatServer implements Observerable {

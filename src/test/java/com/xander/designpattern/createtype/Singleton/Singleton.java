@@ -22,16 +22,27 @@ package com.xander.designpattern.createtype.Singleton;
  */
 public class Singleton {
 
+    private static String uuid;
+
+    public String getUuid() {
+        return uuid;
+    }
+
     /**
      * 1.构造器私有化，不允许别人new实例
      */
     private Singleton(){
+        long i = 1;
+        while(i > 1000000000000000L){
+            i++;
+        }
+        uuid = "你好";
     }
 
     /**
      * 2.声明一个公外部调用的单例
      */
-    private volatile static Singleton instance;
+    private static Singleton instance;
 
     /**
      * 3.实现上述单例

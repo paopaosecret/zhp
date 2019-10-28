@@ -45,4 +45,13 @@ public class JavaTest {
         long id = (timestamp<<8 + 254);
         System.out.println(id);
     }
+
+    public static void testNull(){
+        String string = "hello";
+        if(!string.equals(null)){
+            System.out.println("不是null");
+        }else{
+            System.out.println();
+        }
+    }
 }
