@@ -71,6 +71,12 @@
 			<version>1.3.2</version>
 		</dependency>
 		<!-- spring boot 和 mybatis 整合包 支持库   end -->
+
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.12.1</version>
+		</dependency>
 </dependencies>
 
 <build>

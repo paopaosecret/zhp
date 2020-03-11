@@ -1,35 +1,54 @@
 package com.xander.json;
 
 import com.alibaba.fastjson.JSON;
-import com.xander.SymboltemBean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by zhaobing04 on 2019/8/28.
  */
 public class JsonTest {
     public static void main(String args[]){
-        testJSON();
+        testMap();
+//        testList();
     }
 
-    public static void testJSON(){
-        ArrayList<com.xander.SymboltemBean> symboltemBeans = new ArrayList<>();
+    public static void testMap(){
+        Map<String, String> map = new HashMap<>();
+        map.put("id","123");
+        map.put("name", "lisi");
 
-        com.xander.SymboltemBean bean = new com.xander.SymboltemBean();
-        bean.setSymbol("selfServiceMall");
-        bean.setJumpUrl("https://mshop.58.com/intelligentmarket/home/getHomeIndex?source=app_58sjt");
-        symboltemBeans.add(bean);
+        String str = JSON.toJSONString(map);
+        Map<String, String> parseMap = (Map<String, String>) JSON.parse(str);
+        System.out.println(parseMap.get("id"));
+        System.out.println(parseMap.get("name"));
+    }
 
-        com.xander.SymboltemBean bean1 = new com.xander.SymboltemBean();
-        bean1.setSymbol("welfarehome");
-        bean1.setJumpUrl("https://mshop.58.com/intelligentmarket/home/getHomeIndex?source=app_58sjt");
-        symboltemBeans.add(bean1);
-
-        String jsnoStr = JSON.toJSONString(symboltemBeans);
-        System.out.println(jsnoStr);
-
-        ArrayList<com.xander.SymboltemBean> list = (ArrayList<com.xander.SymboltemBean>) JSON.parseArray(jsnoStr, SymboltemBean.class);
+    public static void testList(){
+        String jsonStr = "[{\"ask\":\"1\",\"answer\":\"2\"}]";
+        ArrayList<SymboltemBean> list = (ArrayList<SymboltemBean>) JSON.parseArray(jsonStr, SymboltemBean.class);
         System.out.println(JSON.toJSONString(list));
+    }
+
+    public class SymboltemBean implements Serializable {
+        private String ask;
+        private String answer;
+
+        public String getAsk() {
+            return ask;
+        }
+
+        public void setAsk(String ask) {
+            this.ask = ask;
+        }
+
+        public String getAnswer() {
+            return answer;
+        }
+
+
     }
 }

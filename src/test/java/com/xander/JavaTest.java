@@ -21,23 +21,23 @@ public class JavaTest {
     }
 
     public static void testJSON(){
-        ArrayList<SymboltemBean> symboltemBeans = new ArrayList<>();
-
-        SymboltemBean bean = new SymboltemBean();
-        bean.setSymbol("selfServiceMall");
-        bean.setJumpUrl("https://mshop.58.com/intelligentmarket/home/getHomeIndex?source=app_58sjt");
-        symboltemBeans.add(bean);
-
-        SymboltemBean bean1 = new SymboltemBean();
-        bean1.setSymbol("welfarehome");
-        bean1.setJumpUrl("https://mshop.58.com/intelligentmarket/home/getHomeIndex?source=app_58sjt");
-        symboltemBeans.add(bean1);
-
-        String jsnoStr = JSON.toJSONString(symboltemBeans);
-        System.out.println(jsnoStr);
-
-        ArrayList<SymboltemBean> list = (ArrayList<SymboltemBean>) JSON.parseArray(jsnoStr, SymboltemBean.class);
-        System.out.println(JSON.toJSONString(list));
+////        ArrayList<SymboltemBean> symboltemBeans = new ArrayList<>();
+////
+////        SymboltemBean bean = new SymboltemBean();
+////        bean.setSymbol("selfServiceMall");
+////        bean.setJumpUrl("https://mshop.58.com/intelligentmarket/home/getHomeIndex?source=app_58sjt");
+////        symboltemBeans.add(bean);
+////
+////        SymboltemBean bean1 = new SymboltemBean();
+////        bean1.setSymbol("welfarehome");
+////        bean1.setJumpUrl("https://mshop.58.com/intelligentmarket/home/getHomeIndex?source=app_58sjt");
+////        symboltemBeans.add(bean1);
+////
+////        String jsnoStr = JSON.toJSONString(symboltemBeans);
+////        System.out.println(jsnoStr);
+//
+//        ArrayList<SymboltemBean> list = (ArrayList<SymboltemBean>) JSON.parseArray(jsnoStr, SymboltemBean.class);
+//        System.out.println(JSON.toJSONString(list));
     }
 
     public static void testLong(){
