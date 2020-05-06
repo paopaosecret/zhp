@@ -2,6 +2,8 @@ package com.xander.threadtest.lock;
 
 /**
  * Created by Administrator on 2019/9/16.
+ * 交替打印两个字符串
+ *
  */
 public class SynWaitNotifyTest {
 

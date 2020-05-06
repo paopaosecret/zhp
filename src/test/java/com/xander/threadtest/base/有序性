@@ -16,8 +16,8 @@
     SW A,Ra               IF  X   ID EX  MEM WB
 
     A = B + C;  D = E - F 的执行：会有四次延迟
-1    LW R1,B      IF ID EX MEM MB
-2    LW R2,C         IF ID EX  MEM WB
+1    LW Ra,B      IF ID EX MEM MB
+2    LW Rb,C         IF ID EX  MEM WB
 3    ADD Ra,Rb,Rc       IF ID  X   EX MEM WB                 此处会延迟  之后的指令都会延迟，延迟的原因是因为R2还没有准备好
 4    SW A,Ra               IF  X   ID EX  MEM WB
 

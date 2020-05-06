@@ -29,9 +29,7 @@ public class FutureThread {
             System.out.println("main thread 2");
             System.out.println(threadResult);
             System.out.println("main thread 3");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

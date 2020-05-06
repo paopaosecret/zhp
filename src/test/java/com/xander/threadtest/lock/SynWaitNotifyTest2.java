@@ -5,6 +5,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * Created by zhaobing04 on 2019/9/19.
+ * 生产者和消费者
+ * 使用ArrayBlockingQueue作为消息队列
  */
 public class SynWaitNotifyTest2 {
     private static ArrayBlockingQueue<String> messages = new ArrayBlockingQueue<String>(10);
