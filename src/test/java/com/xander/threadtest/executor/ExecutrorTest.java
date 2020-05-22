@@ -5,21 +5,33 @@ package com.xander.threadtest.executor;
  */
 
 public class ExecutrorTest {
-
+    static boolean waitFlag = true;
     public static void main(String[] args){
         MyExecutor myExecutor = MyExecutor.getInstance();
-
-        for(int i= 0; i<= 10000;i++){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(waitFlag){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("等待线程数量"+ myExecutor.mWaitQueue.size());
+                }
+            }
+        }).start();
+        for(int i= 0; i<= 100;i++){
 
             Task t = new Task(i);
             myExecutor.executeTask(t);
             try {
-                Thread.sleep(100);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
+        waitFlag = false;
 //        Task t2 = new Task(2);
 //        Task t3 = new Task(3);
 //        Task t4 = new Task(4);
@@ -58,7 +70,7 @@ public class ExecutrorTest {
 
         @Override
         public void run() {
-//            System.out.println("start current thread:" + Thread.currentThread().toString() + ",index=" + index);
+            System.out.println("start current thread:" + Thread.currentThread().toString() + ",index=" + index);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

@@ -11,16 +11,16 @@ import java.util.Random;
 public class Note {
 
     public static void main(String args[]){
-        Context context = null;
+        Context context = new Context();
 
         for(int i= 0 ; i< 10;i++){
             int type = new Random().nextInt(2);
             switch (type){
                 case 0:
-                    context = new Context(new BusStrategy());
+                    context.setStrategy(new ZheKouStrategy());
                     break;
                 case 1:
-                    context = new Context(new BikeStrategy());
+                    context.setStrategy(new MaiSongStrategy());
                     break;
             }
             context.exeStrategy();
