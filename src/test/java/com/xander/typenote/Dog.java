@@ -12,7 +12,6 @@ public class Dog implements Animal,Serializable {
 
     List list1;
 
-
     @Override
     public String speak(String msg) {
         return "汪汪汪";

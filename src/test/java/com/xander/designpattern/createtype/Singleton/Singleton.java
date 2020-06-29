@@ -10,7 +10,7 @@ package com.xander.designpattern.createtype.Singleton;
  * DCL也是大多数多线程结合单例模式使用的解决方案
  * 问题1：两个if的作用
  *
- * 第一个if判断的作用：是为了提高程序的 效率，当SingletonLazy5对象被创建以后，再获取SingletonLazy5对象时就不用去验证同步代码块的锁及后面的代码，直接返回SingletonLazy5对象
+ * 第一个if判断的作用：是为了提高程序的 效率，当Singleton对象被创建以后，再获取Singleton对象时就不用去验证同步代码块的锁及后面的代码，直接返回Singleton对象
  * 第二个if判断的作用：是为了解决多线程下的安全性问题，也就是保证对象的唯一。
  *
  * 问题2：使用了synchronized关键字 为什么还需要使用volatile关键字修饰该对象？
@@ -32,17 +32,12 @@ public class Singleton {
      * 1.构造器私有化，不允许别人new实例
      */
     private Singleton(){
-        long i = 1;
-        while(i > 1000000000000000L){
-            i++;
-        }
-        uuid = "你好";
     }
 
     /**
      * 2.声明一个公外部调用的单例
      */
-    private static Singleton instance;
+    private static volatile Singleton instance;
 
     /**
      * 3.实现上述单例

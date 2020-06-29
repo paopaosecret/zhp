@@ -5,7 +5,11 @@ package com.xander.algorithm;
  */
 
 public class QuickSort {
-
+    /**
+     * @param targetArr
+     * @param start
+     * @param end
+     */
     static void quickSort(int targetArr[],int start,int end)
     {
         int i=start,j=end;
