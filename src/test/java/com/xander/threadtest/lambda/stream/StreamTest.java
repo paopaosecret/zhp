@@ -1,4 +1,4 @@
-package com.xander.threadtest.stream;
+package com.xander.threadtest.lambda.stream;
 
 
 /**

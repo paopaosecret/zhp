@@ -1,18 +1,19 @@
-package com.xander.lambda;
+package com.xander.threadtest.lambda;
 
 import com.alibaba.fastjson.JSON;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.IntConsumer;
 import java.util.function.Supplier;
+import java.util.stream.IntStream;
 
 /**
  * Created by zhaobing04 on 2018/5/8.
+ *
+ * 顺序：Java高级并发程序设计第六章
+ *
  * 1.函数式编程
  * 2.lambda使用
  * 3.方法引用中夹杂Java8内置的四大核心函数式接口
@@ -39,7 +40,8 @@ public class Lambda extends Handler {
 //        test5();
 //        test6();
 //        new Lambda().test7();
-        test8();
+//        test8();
+        test9();
     }
 
     /**
@@ -188,10 +190,11 @@ public class Lambda extends Handler {
     /**
      * 基于以上的知识可以看下代码是如何简化的
      *
-     * 遍历数组并打印每个值
+     * 需求：遍历数组并打印每个值
      */
     public static void test8(){
         int[] array = {1,3,4,2,7,5,9};
+
         //TODO 第一步：最原始初始方式
         for(int i : array){
             System.out.print(i);
@@ -234,5 +237,35 @@ public class Lambda extends Handler {
         //TODO 符合方法引用, 继续省略参数声明和传递
         //TODO 第六步：使用方法引用
         Arrays.stream(array).forEach(System.out::print);
+    }
+
+    /**
+     * Java流
+     * 并行流 和 并行排序 测试
+     *
+     * 需求：统计给定数字范围之内的质数有多少？
+     */
+    private static void test9() {
+        //TODO 使用串行流统计数据
+        long start = System.currentTimeMillis();
+        IntStream.range(1,1000000).filter(PrimeUtil::isPrime).count();  //串行统计,大约时间500ms
+        System.out.println(System.currentTimeMillis() - start);
+
+        //TODO 使用并行流统计数据
+        long start1 = System.currentTimeMillis();
+        IntStream.range(1,1000000).parallel().filter(PrimeUtil::isPrime).count();  //并行统计,大约时间200ms
+        System.out.println(System.currentTimeMillis() - start1);
+
+        //TODO 从集合获取流
+        List<Person> list = new ArrayList<>();
+        list.add(new Person(12,"张一"));
+        list.add(new Person(14,"张二"));
+        list.add(new Person(13,"张三"));
+        list.add(new Person(15,"张四"));
+        //获取串行流 获取平均年龄
+        double averageAge = list.stream().mapToInt(s->s.age).average().getAsDouble();
+        //获取并行流 获取平均年龄
+        double averageAge1 = list.parallelStream().mapToInt(s->s.age).average().getAsDouble();
+        System.out.println("平均串行年龄：" + averageAge + " 平均并行年龄：" + averageAge1);
     }
 }

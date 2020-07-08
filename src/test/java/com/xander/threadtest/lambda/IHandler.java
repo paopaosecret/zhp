@@ -1,4 +1,4 @@
-package com.xander.lambda;
+package com.xander.threadtest.lambda;
 
 /**
  * Created by zhaobing04 on 2020/7/7.
