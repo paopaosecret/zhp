@@ -1,4 +1,4 @@
-package com.xander.designpattern.strcturetype.proxy.dynamicproxy;
+package com.xander.designpattern.strcturetype.proxy.dynamicproxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
