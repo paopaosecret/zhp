@@ -1,10 +1,23 @@
-package com.xander.algorithm;
+package com.xander.algorithm.tree.遍历;
+
+import com.xander.algorithm.tree.TreeNode;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * Created by zhaobing04 on 2019/7/17.
+ * BFS:广度优先搜索,一层一层的遍历
+ *
+ * 非递归算法实现
+ * 遍历算法：利用队列的先进先出特性实现
+ * 1、根节点入队成为队列头结点
+ * 2、头结点出队，获取头节点数据
+ * 3、头节点的子节点从左向右入队
+ * 4、如果队列不是空，循环2,3操作
+ *
+ * @作者 zhaobing04
+ *
+ * @创建日期 2020/7/17 15:37
  */
 public class BFS {
     private static TreeNode treeNode1,treeNode2,treeNode3,treeNode4,treeNode5,treeNode6,treeNode7,treeNode8,treeNode9;
@@ -14,7 +27,7 @@ public class BFS {
         breadthFirstSearch(treeNode1);
     }
 
-    private static void breadthFirstSearch(TreeNode treeNode1) {
+    public static void breadthFirstSearch(TreeNode treeNode1) {
         queue.add(treeNode1);
         while(!queue.isEmpty()){
             TreeNode node = queue.poll();

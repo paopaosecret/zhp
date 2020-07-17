@@ -1,9 +1,24 @@
-package com.xander.algorithm;
+package com.xander.algorithm.tree.遍历;
+
+import com.xander.algorithm.tree.TreeNode;
 
 import java.util.Stack;
 
 /**
- * Created by zhaobing04 on 2019/7/17.
+ * DFS:深度优先搜索:先序（根左右），左根右（中序），左右根（后序）
+ *
+ * 非递归算法实现
+ * 先序算法：利用栈的先进后出特性，先遍历根节点，然后先入栈右节点，再入栈子节点
+ *
+ * 1、根节点入栈成为top节点
+ * 2、top节点出栈，获取其数据
+ * 3、入栈top节点的右节点
+ * 4、入栈top节点的子节点
+ * 5、如果栈不为空，则循环2,3,4
+ *
+ * @作者 zhaobing04
+ *
+ * @创建日期 2020/7/17 15:35
  */
 public class DFS {
     private static TreeNode treeNode1,treeNode2,treeNode3,treeNode4,treeNode5,treeNode6,treeNode7,treeNode8,treeNode9;
@@ -13,7 +28,7 @@ public class DFS {
         depthFirstSearch(treeNode1);
     }
 
-    private static void depthFirstSearch(TreeNode rootNode) {
+    public static void depthFirstSearch(TreeNode rootNode) {
         stack.add(rootNode);
         while(!stack.isEmpty()){
             TreeNode node = stack.pop();
