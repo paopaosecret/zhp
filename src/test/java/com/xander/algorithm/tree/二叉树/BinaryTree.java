@@ -21,7 +21,6 @@ import java.util.Stack;
 public class BinaryTree {
     private static TreeNode root; //根节点
     private static Random random = new Random(System.currentTimeMillis());
-    private static int index = 0;
     public static void main(String[] args) {
         for(int i = 0; i < 10; i++){     //TODO 使用i顺序插入
 //            int data  = random.nextInt(10000);   //TODO 使用随机数随机插入
@@ -53,8 +52,6 @@ public class BinaryTree {
         deleteNode(root,5);
         deleteNode(root,0);
         DFS.depthFirstSearch(root);
-//        deleteNode(data);
-//        searchNode(data);
     }
 
     /**
@@ -85,7 +82,6 @@ public class BinaryTree {
             }
         }
     }
-
 
     /**
      * 删除节点（分三种情况）

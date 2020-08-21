@@ -119,10 +119,11 @@ public class ASMDemo {
         // 定义对象头：版本号、修饰符、全路径类名、签名、父类、实现的接口
         cw.visit(Opcodes.V1_8, Opcodes.ACC_PUBLIC, "asm/entity/Asm",
                 null, "java/lang/Object", null);
-        // 添加方法：修饰符、方法名、描述符、签名、抛出的异常
+        //TODO 添加属性：访问标志修饰符、方法名、属性类型描述符、签名、初始化值
         cw.visitField(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC +  Opcodes.ACC_FINAL, "count", "I", null, new Integer(10)).visitEnd();
-        MethodVisitor mv = cw.visitMethod(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC, "main",
-                "([Ljava/lang/String;)V", null, null);
+
+        // 添加方法：访问标志修饰符、方法名、返回值描述符、签名、抛出的异常
+        MethodVisitor mv = cw.visitMethod(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
         // 执行指令：获取静态属性
         mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
         // 加载常量 load constant

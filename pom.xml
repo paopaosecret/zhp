@@ -102,6 +102,19 @@
 			<groupId>asm</groupId>
 			<artifactId>asm</artifactId>
 		</dependency>
+
+		<!-- gif 操作开始-->
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.madgag</groupId>
+			<artifactId>animated-gif-lib</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- gif 操作结束-->
 </dependencies>
 
 <build>

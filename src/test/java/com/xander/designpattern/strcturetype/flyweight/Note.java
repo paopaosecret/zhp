@@ -25,19 +25,23 @@ public class Note {
     public static void main(String[] args) {
         int extrinsic = 22;
 
-        Flyweight flyweightX = FlyweightFactory.getFlyweight("X");
-        flyweightX.operation(++ extrinsic);
+        Flyweight flyweightWhite = FlyweightFactory.getFlyweight("white");
+        flyweightWhite.operation(++ extrinsic);
 
-        Flyweight flyweightY = FlyweightFactory.getFlyweight("Y");
-        flyweightY.operation(++ extrinsic);
+        Flyweight flyweightBlack = FlyweightFactory.getFlyweight("black");
+        flyweightBlack.operation(++ extrinsic);
 
-        Flyweight flyweightZ = FlyweightFactory.getFlyweight("Z");
-        flyweightZ.operation(++ extrinsic);
+        Flyweight flyweightBlack2 = FlyweightFactory.getFlyweight("black");
+        flyweightBlack2.operation(++ extrinsic);
 
-        Flyweight flyweightRX = FlyweightFactory.getFlyweight("X");
-        flyweightRX.operation(++ extrinsic);
+        Flyweight flyweightWhite2 = FlyweightFactory.getFlyweight("white");
+        flyweightWhite2.operation(++ extrinsic);
 
         Flyweight flyweight = new UnsharedConcreteFlyweight("X");
         flyweight.operation(++ extrinsic);
+
+        if(flyweightBlack == flyweightBlack2){
+            System.out.println("同一个黑子");
+        }
     }
 }

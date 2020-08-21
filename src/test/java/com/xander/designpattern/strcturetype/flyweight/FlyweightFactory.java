@@ -10,15 +10,19 @@ public class FlyweightFactory {
     private static HashMap<String, Flyweight> pool = new HashMap<>();
 
     //享元工厂，根据外部状态获取
-    public static Flyweight getFlyweight(String extrinsic){
+    public static Flyweight getFlyweight(String intrinsic){
         Flyweight flyweight = null;
-        if(pool.containsKey(extrinsic)){
-            flyweight = pool.get(extrinsic);
-            System.out.println("已有 " + extrinsic + " 直接从池中取出----");
+        if(pool.containsKey(intrinsic)){
+            flyweight = pool.get(intrinsic);
+            System.out.println("已有 " + intrinsic + " 直接从池中取出----");
         }else{
-            flyweight = new ConcreteFlyweight(extrinsic);
-            pool.put(extrinsic, flyweight);
-            System.out.println("创建 " + extrinsic + " 并从池子中取出----");
+            if(intrinsic.contains("white")){
+                flyweight = new WhiteConcreteFlyweight(intrinsic);
+            }else if(intrinsic.contains("black")){
+                flyweight = new BlackConcreteFlyweight(intrinsic);
+            }
+            pool.put(intrinsic, flyweight);
+            System.out.println("创建 " + intrinsic + " 并从池子中取出----");
         }
         return flyweight;
     }
