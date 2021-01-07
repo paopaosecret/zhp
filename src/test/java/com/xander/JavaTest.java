@@ -3,6 +3,7 @@ package com.xander;
 import com.alibaba.fastjson.JSON;
 import com.sun.jndi.toolkit.url.Uri;
 import com.xander.javabase.annotation.Start;
+import com.xander.utils.StringUtil;
 import com.xander.utils.StringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -85,14 +86,30 @@ public class JavaTest {
 //        System.out.println("obj.a == " + obj.a + "    obj.b == " + obj.b);
 
 //        testJSON();
-        System.out.println(isHttpUrl("www.baidu.com"));
-        System.out.println(isHttpUrl("hao123.com"));
-        System.out.println(isHttpUrl("http://www"));
-        System.out.println(isHttpUrl(""));
+//        System.out.println(isHttpUrl("www.baidu.com"));
+//        System.out.println(isHttpUrl("hao123.com"));
+//        System.out.println(isHttpUrl("http://www"));
+//        System.out.println(isHttpUrl(""));
+        testA();
     }
 
 
+    public static void testA(){
+        String name = "上海锦囊妙计企业发展（集团）股份公司";
+        if (StringUtil.isEmpty(name)) {
+            System.out.println("请填写店铺名称");
+            return;
+        } else if (StringUtil.isEmoji(name) || StringUtil.isMobileNO(name)) {
+            System.out.println("请重新输入店铺名称");
+            return;
+        } else if (!StringUtil.isLength(name)) {
+            System.out.println("店铺名称字数在3~20字以内");
+            return;
+        } else{
+            System.out.println("success");
+        }
 
+    }
     public static void testJSON(){
         ArrayList<String> symboltemBeans = new ArrayList<>();
         symboltemBeans.add("hyapp.58.con");

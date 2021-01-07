@@ -1,0 +1,4 @@
+num add a, b, c {
+    num temp = 10 * a + b * c ;
+    return temp ;
+}
