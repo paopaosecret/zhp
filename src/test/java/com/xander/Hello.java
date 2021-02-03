@@ -9,9 +9,15 @@ import java.util.Date;
 public class Hello {
     public static void main(String[] args) {
 //        System.out.println(getIndex("https://pic1.58cdn.com.cn/nowater/sjtnw/n_v2e0fbbd250a44411ca0ed990240778cc6.png?w=291&h=218"));
-        String strDateFormat = "yyyy年MM月dd日 HH:mm:ss";
-        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
-        System.out.println(sdf.format(new Date()));
+//        String strDateFormat = "yyyy年MM月dd日 HH:mm:ss";
+//        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+//        System.out.println(sdf.format(new Date()));
+        String str = "hello";
+        String sub = "eo";
+        for(int i = 0; i< sub.length(); i++){
+            str = str.replaceAll("" + sub.charAt(i), "");
+        }
+        System.out.println(str);
     }
 
     public static Boolean isMatchUrl(String url) {
