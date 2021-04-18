@@ -16,5 +16,4 @@ JNIEXPORT void JNICALL Java_com_example_JniTest_set(JNIEnv *rnv, jobject thiz, j
     char* str = (char*) (*env)->GetStringUTFChars(env,string,null);
     printf("%s",str);
     (*env)->ReleaseStringUTFChars(env,string,str);
-
 }

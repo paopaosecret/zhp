@@ -37,6 +37,7 @@ public class JsonTest {
         private String ask;
         private String answer;
 
+
         public String getAsk() {
             return ask;
         }
