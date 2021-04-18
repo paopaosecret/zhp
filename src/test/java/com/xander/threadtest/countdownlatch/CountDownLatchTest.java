@@ -16,9 +16,8 @@ public class CountDownLatchTest {
         List<String> inputList = new ArrayList<>();   // 请求输入参数
         inputList.add("request1");
         inputList.add("request2");
-
-
         inputList.add("request3");
+        inputList.add("request4");
 
         CountDownLatch latch = new CountDownLatch(inputList.size());  // 2、请求并发计数
         for (int i = 0; i < latch.getCount(); i++) {                              // 3、起三个线程，分别去调用请求请求
